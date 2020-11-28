@@ -20,14 +20,14 @@ public class MemberDAO {
 		return template.update(sql);
 	}
 
-	public int delete(int id) {
-		String sql = "delete from ProjMember where id=" + id + "";
+	public int delete(int sid) {
+		String sql = "delete from ProjMember where id=" + sid + "";
 		return template.update(sql);
 	}
 
-	public Member getMemberById(int id) {
+	public Member getMemberById(int sid) {
 		String sql = "select * from ProjMember where id=?";
-		return template.queryForObject(sql, new Object[] { id }, new BeanPropertyRowMapper<Member>(Member.class));
+		return template.queryForObject(sql, new Object[] { sid }, new BeanPropertyRowMapper<Member>(Member.class));
 	}
 
 	public List<Member> getMemberloyees() {

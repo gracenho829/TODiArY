@@ -41,5 +41,10 @@ public class MemberDAO {
 			}
 		});
 	}
+	
+	public List<Contents> getContents(){
+		
+	}
+	
 }
 

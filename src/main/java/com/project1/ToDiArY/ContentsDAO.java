@@ -4,49 +4,59 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Repository;
 
+import com.project1.ToDiArY.Contents;
+import com.project1.ToDiArY.ContentsDAO.ContentsRowMapper;
 import com.project1.ToDiArY.*;
 
+@Repository
 public class ContentsDAO {
-	JdbcTemplate template;
-
-	public void setTemplate(JdbcTemplate template) {
-		this.template = template;
-	}
 	
-	public int save(Contents p) {
-		String sql = "insert into ProjContents(userid, contents, title, photo) values('" + p.getUserid() + "'," + p.getContents() + ",'"
-				+ p.getTitle() + "'," + p.getPhoto() + "')";
-		return template.update(sql);
+	@Autowired
+	SqlSession sqlSession;
+
+	public int insertContents(Contents vo) {
+		int result = sqlSession.insert("Contents.insertContents", vo);
+		return result;
 	}
 
-	public int update(Contents p) {
-		String sql = "update ProjContents set contents='" + p.getContents() + "', title=" + p.getTitle() + ", photo='"
-				+ p.getPhoto() + "' where stx=" + p.getStx() + "";
-		return template.update(sql);
+	public int updateContents(Contents vo) {
+		int result = sqlSession.update("Contents.updateContents", vo);
+		return result;
 	}
 	
-	public int delete(int stx) {
-		String sql = "delete from ProjContents where stx=" + stx + "";
-		return template.update(sql);
+	public int deleteContents(int stx) {
+		int result = sqlSession.delete("Contents.deleteContents", stx);
+		return result;
 	}
 	
-	public Contents getContentsById(int sid) {
-		String sql = "select * from ProjContents where stx=?";
-		return template.queryForObject(sql, new Object[] { sid }, new BeanPropertyRowMapper<Contents>(Contents.class));
+	class ContentsRowMapper implements RowMapper<Contents>{
+		@Override
+		public Contents mapRow(ResultSet rs, int rowNum) throws SQLException{
+			Contents vo = new Contents();
+			vo.setStx(rs.getInt("stx"));
+			vo.setUserid(rs.getString("userid"));
+			vo.setTitle(rs.getString("title"));
+			vo.setContents(rs.getString("contents"));
+			vo.setPhoto(rs.getString("photo"));
+			vo.setRegdate(rs.getDate("regdate"));
+			return vo;
+		}
 	}
-
-	public List<Contents> getContents1() {
-		return template.query("select * from ProjContents", new RowMapper<Contents>() {
-			public Contents mapRow(ResultSet rs, int row) throws SQLException {
-				Contents e = new Contents();
-				e.setPhoto(rs.getString(1));
-				e.setRegdate(rs.getDate(2));
-				return e;
-			}
-		});
+	
+	public Contents getContents(int stx) {
+		Contents result = sqlSession.selectOne("Contents.getContents", stx);
+		return result;
+	}
+	
+	public List<Contents> getContentsList(){
+		List<Contents> result = sqlSession.selectList("Contents.getContentsList", new ContentsRowMapper());
+		return result;
 	}
 }

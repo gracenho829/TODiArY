@@ -12,11 +12,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class ContentsController {
 
 	@Autowired
-	ContentsServiceImpl contents1;
+	ContentsServiceImpl contentsService;
 	
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public String contentslist(Model model) {
-		model.addAttribute("list", contents1.getContents1());
+		model.addAttribute("list", contentsService.getContentsList());
 		return "list";
 	}
 	
@@ -27,7 +27,7 @@ public class ContentsController {
 	
 	@RequestMapping(value = "/addok", method = RequestMethod.POST)
 	public String addPostOK(Contents vo) {
-		if(contents1.save(vo) == 0) {
+		if(contentsService.insertContents(vo) == 0) {
 			System.out.println("데이터 추가 실패");
 		}else {
 			System.out.println("데이터 추가 성공!");
@@ -37,14 +37,14 @@ public class ContentsController {
 	
 	@RequestMapping(value = "/editform/{id}", method = RequestMethod.GET)
 	public String editPost(@PathVariable("id") int id, Model model) {
-		Contents contents = contents1.getContentsById(id);
-		model.addAttribute("u", contents);
+		Contents contentsVO = contentsService.getContents(id);
+		model.addAttribute("u", contentsVO);
 		return "editform";
 	}
 	
 	@RequestMapping(value = "/editok", method = RequestMethod.POST)
 	public String editPostOK(Contents vo) {
-		if(contents1.update(vo) == 0) {
+		if(contentsService.updateContents(vo) == 0) {
 			System.out.println("데이터 수정 실패");
 		}else {
 			System.out.println("데이터 수정 성공!");
@@ -54,7 +54,7 @@ public class ContentsController {
 	
 	@RequestMapping(value = "/deleteok/{id}", method = RequestMethod.GET)
 	public String deletePostOK(@PathVariable("id") int id) {
-		if(contents1.delete(id) == 0) {
+		if(contentsService.deleteContents(id) == 0) {
 			System.out.println("데이터 삭제 실패");
 		}else {
 			System.out.println("데이터 삭제 성공!");

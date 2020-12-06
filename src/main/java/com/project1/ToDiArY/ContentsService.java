@@ -3,9 +3,9 @@ package com.project1.ToDiArY;
 import java.util.List;
 
 public interface ContentsService {
-	public int save(Contents p);
-	public int delete(int stx);
-	public int update(Contents p);
-	public Contents getContentsById(int sid);
-	public List<Contents> getContents1();
+	public int insertContents(Contents vo);
+	public int deleteContents(int stx);
+	public int updateContents(Contents vo);
+	public Contents getContents(int stx);
+	public List<Contents> getContentsList();
 }

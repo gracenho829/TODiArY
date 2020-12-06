@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Contents">
+	<insert id="insertContents">
+		insert into ProjContents (userid, title, contents, photo) values (#{userid}, #{title}, #{contents}, #{photo})
+	</insert>
+	<update id="updateContents">
+		update ProjContents set title=#{title}, contents=#{contents}, photo=#{photo} where stx=#{stx}
+	</update>
+	<delete id="deleteContents">
+		delete from ProjContents where stx=#{stx}
+	</delete>
+	<select id="getContents" resultType="contents">
+		select * from ProjContents where stx=#{stx}
+	</select>
+	<select id="getContentsList" resultType="contents">
+		select * from ProjContents order by stx desc
+	</select>
+</mapper>

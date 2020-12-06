@@ -11,27 +11,27 @@ public class ContentsServiceImpl implements ContentsService{
 	ContentsDAO contentsDAO;
 	
 	@Override
-	public int save(Contents p) {
-		return contentsDAO.save(p);
+	public int insertContents(Contents vo) {
+		return contentsDAO.insertContents(vo);
 	}
 	
 	@Override
-	public int delete(int stx) {
-		return contentsDAO.delete(stx);
+	public int deleteContents(int seq) {
+		return contentsDAO.deleteContents(seq);
 	}
 	
 	@Override
-	public int update(Contents vo) {
-		return contentsDAO.update(vo);
+	public int updateContents(Contents vo) {
+		return contentsDAO.updateContents(vo);
 	}
 	
 	@Override
-	public Contents getContentsById(int sid) {
-		return contentsDAO.getContentsById(sid);
+	public Contents getContents(int seq) {
+		return contentsDAO.getContents(seq);
 	}
 	
 	@Override
-	public List<Contents> getContents1(){
-		return contentsDAO.getContents1();
+	public List<Contents> getContentsList(){
+		return contentsDAO.getContentsList();
 	}
 }

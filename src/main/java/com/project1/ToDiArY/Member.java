@@ -7,7 +7,6 @@ public class Member {
 	private String userid;
 	private String username;
 	private String password;
-	private ArrayList<Contents> contents;
 	private Date regdate;
 	
 	public int getSid() {
@@ -33,13 +32,6 @@ public class Member {
 	}
 	public void setPassword(String password) {
 		this.password = password;
-	}
-	
-	public ArrayList<Contents> getContents() {
-		return contents;
-	}
-	public void setContents(ArrayList<Contents> contents) {
-		this.contents = contents;
 	}
 	public Date getRegdate() {
 		return regdate;

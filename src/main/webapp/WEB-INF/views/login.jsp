@@ -19,5 +19,6 @@
 <div><label>Password: </label><input type='password' name='password' /></div>
 <button type='submit'>login</button>
 </form>
+<br/><a href="join">회원 가입</a>
 </body>
 </html>

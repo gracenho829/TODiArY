@@ -36,7 +36,7 @@
 </head>
 <body>
 <h1>자유게시판</h1>
-<h2>${login.username}님 안녕하세요</h2>
+<h2>${login.username}님 안녕하세요</h2><a href="../login/login">로그아웃</a>
 <table id="list" width="90%">
 <tr>
 	<th>Title</th>

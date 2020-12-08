@@ -45,4 +45,19 @@ public class MemberController {
 		return "redirect:/login/login";
 	}
 	
+	@RequestMapping(value = "/join", method = RequestMethod.GET)
+	public String joinNew() {
+		return "joinform";
+	}
+	
+	@RequestMapping(value = "/joinok", method = RequestMethod.POST)
+	public String joinNewOk(Member vo) {
+		if(service.insertMember(vo) == 0) {
+			System.out.println("데이터 추가 실패");
+		}else {
+			System.out.println("데이터 추가 성공!");
+		}
+		return "redirect:/login/login";
+	}
+	
 }

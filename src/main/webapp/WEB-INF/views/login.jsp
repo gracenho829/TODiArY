@@ -4,7 +4,6 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" type = "text/css" href= "style.css">
 <title>Log-In to ToDiArY</title>
 <style>
 	@font-face {
@@ -17,6 +16,39 @@
     font-family: 'MADE Sunflower Regular';
     }
     
+    @keyframes fadein {
+	    from {
+	        opacity:0;
+	    }
+	    to {
+	        opacity:1;
+	    }
+	}
+	@-moz-keyframes fadein { /* Firefox */
+	    from {
+	        opacity:0;
+	    }
+	    to {
+	        opacity:1;
+	    }
+	}
+	@-webkit-keyframes fadein { /* Safari and Chrome */
+	    from {
+	        opacity:0;
+	    }
+	    to {
+	        opacity:1;
+	    }
+	}
+	@-o-keyframes fadein { /* Opera */
+	    from {
+	        opacity:0;
+	    }
+	    to {
+	        opacity: 1;
+	    }
+	}
+	
 	img, label{display:inline-block;}
 	label{width:130px}
 	button{background-color:blue; color:white; font-size:15px}
@@ -34,6 +66,10 @@
 		  display: inline-block;
 		  height: 100vh; 
 		  text-align: center;
+		   animation: fadein 2s;
+	    -moz-animation: fadein 2s; /* Firefox */
+	    -webkit-animation: fadein 2s; /* Safari and Chrome */
+	    -o-animation: fadein 2s;
 	}
 	.col2 {
 		  float: left;
@@ -43,9 +79,12 @@
 		  height: 100vh; 
 		  text-align: center;
 		  background-color:#EBEDEA;
-		  
-	
-	}
+		   animation: fadein 2s;
+	    -moz-animation: fadein 2s; /* Firefox */
+	    -webkit-animation: fadein 2s; /* Safari and Chrome */
+	    -o-animation: fadein 2s;
+		
+		}
 	
 	.row:after {
 	  content: "";
@@ -96,9 +135,10 @@
 
 	
 	.buttons{
-	width: 500px;
+	width: 80%;
   	margin: 0 auto;
   	align: center;
+  	line-height: 20px;
   	}
 </style>
 </head>
@@ -115,7 +155,7 @@
 			<div id = "userid" style = "margin-top: 100px;"><label >Username: </label><input type='text' name='userid'/></div>
 			<div id = "password" style = "margin-top: 20px; margin-bottom: 90px;"><label>Password: </label><input type='password' name='password' /></div>
 			<div>
-				<div class = "buttons"><button type='submit' style = "margin-right: 30px;">Login</button><button type="button" onclick="location.href='join'">Register</button></div>
+				<div class = "buttons"><button type='submit' style = "margin-right: 20px;">Login</button><button type="button" onclick="location.href='join'">Register</button></div>
 			</div>
 			</form>
 		</div>

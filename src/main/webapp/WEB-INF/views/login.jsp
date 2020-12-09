@@ -10,7 +10,7 @@
     font-family: 'MADE Sunflower Regular';
     font-style: normal;
     font-weight: normal;
-    src:  url(src/MADE.woff);
+    src:  url("/project1/resources/fonts/MADE.woff") format('woff');
     }
     h1, h2, h3 {
     font-family: 'MADE Sunflower Regular';
@@ -114,7 +114,7 @@
 	
 	
 	button{
-		width: 200px;
+		width: 150px;
 		height: 40px;
 		border-radius:20px;
 		background-color: #999D8F;
@@ -135,7 +135,7 @@
 
 	
 	.buttons{
-	width: 80%;
+	width: 95%;
   	margin: 0 auto;
   	align: center;
   	line-height: 20px;

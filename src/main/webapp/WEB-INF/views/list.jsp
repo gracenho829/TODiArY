@@ -9,8 +9,11 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<title>ToDiArY</title>
+<title>One Chapter</title>
 <style>
+	.wrapper{
+	display: flex;
+	}
    @font-face {
        font-family: 'MADE Sunflower Regular';
        font-style: normal;
@@ -89,7 +92,13 @@
      clear: both;
    }
 
-
+	.buttons{
+	width: 95%;
+  	margin: 0 auto;
+  	align: center;
+  	line-height: 20px;
+  	}
+  	
    button{
       width: 85%;
       height: 40px;
@@ -105,17 +114,25 @@
       box-shadow: 2px 4px 7px #999D8F;
    }
 
+	.modalButton{
+		 width: 85%;
+      height: 40px;
+      border-radius:20px;
+      background-color: #475438;
+      border: none;
+      transition-duration: 0.2s;
+      font-family: 'Helvetica Neue';
+           font-size: 20px;
+           font-style: normal;
+           font-weight: 100;
+           color: #ffffff;
+      box-shadow: 2px 4px 7px #999D8F;
+	}
    button:hover{
       background-color: #ffffff;
       color:#999D8F;
    }
 
-   .buttons{
-   width: 80%;
-     margin: 0 auto;
-     align: center;
-     line-height: 20px;
-     }
 
    .card {
       display:inline-block;
@@ -140,6 +157,41 @@
       font-weight: 100;
     }
 
+	.open{
+		width: 60%;
+		border-radius: 10px; 
+		background-color: #475438; 
+		border: none;
+		margin-bottom: 20px;
+	}
+	.close{
+		width: 25px;
+		height:25px;
+		border-radius: 10px; 
+		background-color: #475438; 
+		border: none;
+		margin-bottom: 20px;
+	}
+	
+	.modal-header{
+	background-color:#ffffff;
+	border-radius:	20px 20px 0px 0px;
+	 width: 600px;
+     margin: 0 auto;
+     align: center;
+     margin-bottom: 10px;
+	}
+	
+	.modal-content{
+		width: 400px;
+		 min-width: 200px;
+		border-radius: 20px;
+		margin: 0 auto;
+    	 align: center;
+    	 height: 70vh;
+
+  
+	}
 </style>
 <script>
    function delete_ok(id){
@@ -153,8 +205,8 @@
 <body>
 	<div class="row">
 		<div class="col1">
-			<img src="../img/profile.png" height="100" style=""vertical-align:center;">
-			<h3>${login.username}'sDiary</h3>
+			<img src="../img/profile.png" height="100" style="vertical-align:center;">
+			<h3>${login.username}'s Diary</h3>
 			<button type="button" onclick="location.href='add'"
 				style="margin-top: 30px; margin-bottom: 20px;">Add New
 				Diary</button>
@@ -163,39 +215,53 @@
 		</div>
 
 		<div class="col2">
-			<h1 style="margin-top: 20px;">ToDiArY Entries</h1>
+			<h1 style="margin-top: 20px;">One Chapter a Day</h1>
 			<c:forEach items="${list}" var="u" varStatus="vs">
 				<c:if test="${u.userid == login.userid}">
 					<div class="card">
 						<img class="card-img-top" src="${u.photo}" alt="Card image cap" style="height: 100px; border-radius: 30px; object-fit: cover;">
 						<div class="card-body">
 							<h5 class="card-title">${u.title}</h5>
-							<!-- <p class="card-text">${u.contents}</p> -->
 							<%--    <a href = "deleteok/${u.stx}" class="btn btn-primary">Delete</a>--%>
 							<!-- Trigger the modal with a button -->
-							  <button class="btn btn-primary" style="border-radius: 10px; background-color: #475438; border: none;" data-toggle="modal" data-target="#myModal${u.stx}">Open</button>
-
+							  <button class = "open" data-toggle="modal" data-target="#myModal${u.stx}">Open</button>
+			
+			
 							  <!-- Modal -->
 							  <div class="modal fade" id="myModal${u.stx}" role="dialog">
 							    <div class="modal-dialog">
-
+									<div class="modal-header">
+									
+									          <h2 class="modal-title" style="display:inline-block;">${login.username}'s Diary</h2>
+									          <button class = "close" data-dismiss="modal">X</button>
+						
+							        </div>
+							       
+						
 							      <!-- Modal content-->
-							      <div class="modal-content">
-							        <div class="modal-header">
-							          <button data-dismiss="modal">&times;</button>
-							          <h4 class="modal-title">${u.title}</h4>
-							        </div>
+							      
+							      <div class = "wrapper">
+							      <div class="modal-content" style = "flex: 0 0 65%;">
+							        
 							        <div class="modal-body">
-							          <img src="${u.photo}" alt="Card image cap" style="height: 100px;">
-							          <p>${u.contents}</p>
+							          <img src="${u.photo}" style="height: 100px;">
 							        </div>
-							        <div class="modal-footer">
-							          <button data-dismiss="modal">Close</button>
 							        </div>
-							      </div>
-
+							        
+							        <div class="modal-content" style = "flex: 1; width:100px; margin-left:10px;">
+								         <div class = "modal-body2">
+								        <h4 style = "margin: 10px 10px 20px 10px; overflow-y:auto;">${u.title}</h4>
+								        <div style ="margin:10px 10px 25px 10px; height: 70%; overflow-y:auto;">${u.contents}</div>
+								        <div>
+										<div class = "buttons" style="margin-bottom:20px;"><button type='button' onclick="location.href='edit'" style = "margin-right: 20px; width:40%; height:30px; font-size: 15px;">Edit</button><button type="button" onclick="location.href='deleteok/${u.stx}'" style="width:40%; height:30px;font-size:15px;">Delete</button></div>
+										</div>
+								        </div>
+							        </div>
+									</div>
+								</div>
+								
 							    </div>
-							  </div>
+					
 						</div>
 					</div>
 				</c:if>

@@ -21,7 +21,7 @@
        font-family: 'MADE Sunflower Regular';
        color: #707070;
     }
-    
+
     @keyframes fadein {
        from {
            opacity:0;
@@ -54,8 +54,8 @@
            opacity: 1;
        }
    }
-   
-   
+
+
       .col1 {
         float: left;
         width: 20%;
@@ -72,24 +72,24 @@
    }
    .col2 {
         width: 70%;
-       
+
         display: inline-block;
-        height: 100vh; 
+        height: 100vh;
         text-align: center;
         animation: fadein 2s;
         -moz-animation: fadein 2s; /* Firefox */
         -webkit-animation: fadein 2s; /* Safari and Chrome */
         -o-animation: fadein 2s;
-      
+
       }
-   
+
    .row:after {
      content: "";
      display: table;
      clear: both;
    }
-   
-   
+
+
    button{
       width: 85%;
       height: 40px;
@@ -102,37 +102,37 @@
            font-style: normal;
            font-weight: 100;
            color: #ffffff;
-      box-shadow: 2px 4px 7px #999D8F; 
+      box-shadow: 2px 4px 7px #999D8F;
    }
-   
+
    button:hover{
       background-color: #ffffff;
       color:#999D8F;
    }
-   
+
    .buttons{
    width: 80%;
      margin: 0 auto;
      align: center;
      line-height: 20px;
      }
-     
+
    .card {
       display:inline-block;
-      width: 300px; 
-      margin-top: 50px; 
-      margin : 20px; 
+      width: 300px;
+      margin-top: 50px;
+      margin : 20px;
       float:left;
       border-radius:30px;
-      box-shadow: 2px 4px 5px #999D8F; 
+      box-shadow: 2px 4px 5px #999D8F;
       border: none;
       background-color:#D4D7C6;
    }
-   
+
    .card-title {
          color: white;
    }
-     
+
     .card-text{
        font-family: 'Helvetica Neue';
       font-size: 12px;
@@ -174,11 +174,11 @@
 							<%--    <a href = "deleteok/${u.stx}" class="btn btn-primary">Delete</a>--%>
 							<!-- Trigger the modal with a button -->
 							  <button class="btn btn-primary" style="border-radius: 10px; background-color: #475438; border: none;" data-toggle="modal" data-target="#myModal${u.stx}">Open</button>
-							
+
 							  <!-- Modal -->
 							  <div class="modal fade" id="myModal${u.stx}" role="dialog">
 							    <div class="modal-dialog">
-							    
+
 							      <!-- Modal content-->
 							      <div class="modal-content">
 							        <div class="modal-header">
@@ -193,7 +193,7 @@
 							          <button data-dismiss="modal">Close</button>
 							        </div>
 							      </div>
-							      
+
 							    </div>
 							  </div>
 						</div>

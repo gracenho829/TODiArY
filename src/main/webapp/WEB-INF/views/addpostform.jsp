@@ -29,7 +29,7 @@
  .center {
 		margin: auto;
 		margin-top: 40px;
-		width: 60%;
+		width: 600px;
 	    border: none;
 	 	background-color:#FFFFFF;
 		padding: 30px;

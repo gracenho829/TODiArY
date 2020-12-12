@@ -16,4 +16,5 @@
 	<select id="getContentsList" resultType="contents">
 		select * from ProjContents order by stx desc
 	</select>
+
 </mapper>

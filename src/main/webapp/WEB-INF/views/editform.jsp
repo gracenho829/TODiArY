@@ -10,10 +10,10 @@
 
 <style>
  .center {
-	min-height: 400px;
+	min-height: 500px;
 	margin: auto;
 	margin-top: 40px;
-	width: 60%;
+	width: 600px;
     border: none;
  	background-color:#FFFFFF;
 	padding: 30px;
@@ -100,19 +100,24 @@
 		}
   	
 	</style>
-<body>
-
-<h1>Edit Form</h1>
+<body style = "background-color:#F5F5F5;">
+<div class = center>
+<h2 style="text-align:center;">Edit Form</h2>
 <form action="../editok" method="post" var="u">
 <input type="hidden" name="stx" value="${u.stx}"/>
 <label>Title:</label><input type="text" name="title" value="${u.title}"/>
-<br><label>Content:</label><textarea cols="50" rows="5" name="contents">${u.contents}</textarea>
-<br><label>Photo:</label><input type="file" name="photo"/>${u.photo}
-<div class = "buttons">
-<input type="submit" value="Edit Post"/>
-<input type="button" value="Cancel" onclick="history.back()"/>
+<br><label style = "margin-bottom:10px;">Content:</label><textarea cols="50" rows="5" name="contents">${u.contents}</textarea>
+<br>
+<div class = "upload" style ="margin-top:50px;">
+<label>Photo:</label>
+	<input type="file" onchange = "readURL(this);"name="photo" style = "margin-left: 10px;"/>
+	<img id="blah" src="${u.photo}"/>
 </div>
-</form>
+<div class = "buttons">
+<input type="submit" value="Edit Post"/><button type = "button" onclick = "history.back()">Cancel</button>
+</div>
 
+</form>
+</div>
 </body>
 </html>

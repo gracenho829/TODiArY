@@ -10,7 +10,7 @@
     font-family: 'MADE Sunflower Regular';
     font-style: normal;
     font-weight: normal;
-    src:  url("/project1/resources/fonts/MADE.woff") format('woff');
+    src:  url("${pageContext.request.contextPath}/resources/fonts/MADE.woff") format('woff');
     }
     h1, h2, h3 {
     font-family: 'MADE Sunflower Regular';

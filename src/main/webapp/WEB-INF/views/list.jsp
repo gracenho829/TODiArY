@@ -18,7 +18,7 @@
        font-family: 'MADE Sunflower Regular';
        font-style: normal;
        font-weight: normal;
-       src:  url("/project1/resources/fonts/MADE.woff") format('woff');
+       src:  url("${pageContext.request.contextPath}/resources/fonts/MADE.woff") format('woff');
     }
     h1, h2, h3 {
        font-family: 'MADE Sunflower Regular';
@@ -253,7 +253,7 @@
 								        <h4 style = "margin: 10px 10px 20px 10px; overflow-y:auto;">${u.title}</h4>
 								        <div style ="margin:10px 10px 25px 10px; height: 70%; overflow-y:auto;">${u.contents}</div>
 								        <div>
-										<div class = "buttons" style="margin-bottom:20px;"><button type='button' onclick="location.href='edit'" style = "margin-right: 20px; width:40%; height:30px; font-size: 15px;">Edit</button><button type="button" onclick="location.href='deleteok/${u.stx}'" style="width:40%; height:30px;font-size:15px;">Delete</button></div>
+										<div class = "buttons" style="margin-bottom:20px;"><button type='button' onclick="location.href='editform/${u.stx}'" style = "margin-right: 20px; width:40%; height:30px; font-size: 15px;">Edit</button><button type="button" onclick="location.href='deleteok/${u.stx}'" style="width:40%; height:30px;font-size:15px;">Delete</button></div>
 										</div>
 								        </div>
 							        </div>

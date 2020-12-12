@@ -164,10 +164,10 @@
          
       
          <div class="card">
-              <div class="card-body">
               <img class="card-img-top" src="${u.photo}" alt="Card image cap" style = "height: 100px; border-radius: 30px; object-fit: cover;">
+              <div class="card-body">
                 <h5 class="card-title">${u.title}</h5>
-                <p class="card-text">${u.contents}</p>
+                <!-- <p class="card-text">${u.contents}</p> -->
                 <a href="#" class="btn btn-primary" style = "border-radius: 10px; background-color:#475438; border:none;">  Open  </a>
             <%--    <a href = "deleteok/${u.stx}" class="btn btn-primary">Delete</a>--%>
              </div>

@@ -127,12 +127,12 @@
 		</div>
 		
 		<div class = "col2">
-			<h1 style = "line-height: 50px; color: #707070;">Register</h1>
+			<h1 style = "line-height: 100px; color: #707070;">Register</h1>
 			<form action="joinok" method="post">
-			<div id = "userid" style = "margin-top: 50px;"><label >Username</label><input type="text" name="username"/></div>
+			<br><br><div id = "userid" style = "margin-top: 50px;"><label >Username</label><input type="text" name="username"/></div>
 			<div id = "userid" style = "margin-top:20px;"><label>User ID:</label><input type="text" name="userid"/></div>
 			<div id = "password" style = "margin-top: 20px; margin-bottom: 50px;"><label>Password: </label><input type='password' name='password' /></div>
-			<input type="submit" value="Join"/>
+			<br><br><input type="submit" value="Join" style = "float: right; margin-right: 70px;"/>
 			</form>
 		</div>
 </div>

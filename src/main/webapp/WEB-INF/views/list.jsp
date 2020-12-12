@@ -164,7 +164,7 @@
 			
 		
 			<div class="card">
-			 	 <img class="card-img-top" src="..." alt="Card image cap" style = "height: 100px; border-radius: 30px;">
+			 	 <img class="card-img-top" src="{$u.****)}" alt="Card image cap" style = "height: 100px; border-radius: 30px;">
 			  	<div class="card-body">
 				    <h5 class="card-title">${u.title}</h5>
 				    <p class="card-text">${u.contents}</p>

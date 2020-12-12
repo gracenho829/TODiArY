@@ -4,8 +4,11 @@
 <!DOCTYPE html>
 <html>
 <head>
- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <title>ToDiArY</title>
 <style>
    @font-face {
@@ -106,7 +109,6 @@
       background-color: #ffffff;
       color:#999D8F;
    }
-
    
    .buttons{
    width: 80%;
@@ -137,7 +139,7 @@
       font-style: normal;
       font-weight: 100;
     }
-   
+
 </style>
 <script>
    function delete_ok(id){
@@ -149,33 +151,57 @@
 
 
 <body>
-   <div class ="row">
-      <div class = "col1">
-      <img src="../img/profile.png" height ="100" style = ""vertical-align:center;">
-      <h3>${login.username}'s Diary</h3>
-      <button type = "button" onclick = "location.href='add'" style="margin-top: 30px; margin-bottom:20px;">Add New Diary</button>
-      <br/><button type = "button" onclick = "location.href='../login/login'">Logout</button>
-   </div>
-      
-   <div class = "col2">
-      <h1 style="margin-top:20px;">ToDiArY Entries</h1>
-         <c:forEach items="${list}" var="u">
-         <c:if test="${u.userid == login.userid}">
-         
-      
-         <div class="card">
-              <div class="card-body">
-              <img class="card-img-top" src="${u.photo}" alt="Card image cap" style = "height: 100px; border-radius: 30px; object-fit: cover;">
-                <h5 class="card-title">${u.title}</h5>
-                <p class="card-text">${u.contents}</p>
-                <a href="#" class="btn btn-primary" style = "border-radius: 10px; background-color:#475438; border:none;">  Open  </a>
-            <%--    <a href = "deleteok/${u.stx}" class="btn btn-primary">Delete</a>--%>
-             </div>
-         </div>
-         </c:if>
-         </c:forEach>
-         <br/>
-      </div>
-   </div>
+	<div class="row">
+		<div class="col1">
+			<img src="../img/profile.png" height="100" style=""vertical-align:center;">
+			<h3>${login.username}'sDiary</h3>
+			<button type="button" onclick="location.href='add'"
+				style="margin-top: 30px; margin-bottom: 20px;">Add New
+				Diary</button>
+			<br />
+			<button type="button" onclick="location.href='../login/login'">Logout</button>
+		</div>
+
+		<div class="col2">
+			<h1 style="margin-top: 20px;">ToDiArY Entries</h1>
+			<c:forEach items="${list}" var="u" varStatus="vs">
+				<c:if test="${u.userid == login.userid}">
+					<div class="card">
+						<img class="card-img-top" src="${u.photo}" alt="Card image cap" style="height: 100px; border-radius: 30px; object-fit: cover;">
+						<div class="card-body">
+							<h5 class="card-title">${u.title}</h5>
+							<!-- <p class="card-text">${u.contents}</p> -->
+							<%--    <a href = "deleteok/${u.stx}" class="btn btn-primary">Delete</a>--%>
+							<!-- Trigger the modal with a button -->
+							  <button class="btn btn-primary" style="border-radius: 10px; background-color: #475438; border: none;" data-toggle="modal" data-target="#myModal${u.stx}">Open</button>
+							
+							  <!-- Modal -->
+							  <div class="modal fade" id="myModal${u.stx}" role="dialog">
+							    <div class="modal-dialog">
+							    
+							      <!-- Modal content-->
+							      <div class="modal-content">
+							        <div class="modal-header">
+							          <button data-dismiss="modal">&times;</button>
+							          <h4 class="modal-title">${u.title}</h4>
+							        </div>
+							        <div class="modal-body">
+							          <img src="${u.photo}" alt="Card image cap" style="height: 100px;">
+							          <p>${u.contents}</p>
+							        </div>
+							        <div class="modal-footer">
+							          <button data-dismiss="modal">Close</button>
+							        </div>
+							      </div>
+							      
+							    </div>
+							  </div>
+						</div>
+					</div>
+				</c:if>
+			</c:forEach>
+			<br />
+		</div>
+	</div>
 </body>
 </html>
